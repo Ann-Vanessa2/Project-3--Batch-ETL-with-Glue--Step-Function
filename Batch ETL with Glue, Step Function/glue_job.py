@@ -29,26 +29,6 @@ S3_BUCKET = args["S3_BUCKET"]
 # RDS connection properties
 # jdbc_url = f"jdbc:mysql://{RDS_HOST}:3306/{RDS_DB}"
 jdbc_url = f"jdbc:{RDS_HOST}:3306/{RDS_DB}?SSL=false"
-# connection_options = {
-#     "url": jdbc_url,
-#     "dbtable": "",
-#     "user": RDS_USER,
-#     "password": RDS_PASSWORD,
-#     "customJdbcDriverS3Path": "s3://aws-glue-jdbc-drivers/mysql/mysql-connector-java-8.0.23.jar",
-#     "customJdbcDriverClassName": "com.mysql.cj.jdbc.Driver"
-# }
-
-# def delete_s3_folder(prefix):
-#     """ Delete all objects in the given S3 prefix (folder). 
-#     This is to ensure the current files are stored appropriately.
-#     The reason for creating this function is due to 'overwrite' not being supported by Glue Job."""
-
-#     print(f"Deleting existing files in S3: {prefix}")
-#     response = s3_client.list_objects_v2(Bucket=S3_BUCKET, Prefix=prefix)
-#     if "Contents" in response:
-#         delete_keys = [{"Key": obj["Key"]} for obj in response["Contents"]]
-#         s3_client.delete_objects(Bucket=S3_BUCKET, Delete={"Objects": delete_keys})
-#         print(f"Deleted existing files in S3: {prefix}")
 
 # Function to extract data and load to S3
 def fetch_and_upload_s3(table_name):
