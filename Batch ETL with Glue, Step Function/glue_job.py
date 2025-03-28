@@ -28,7 +28,7 @@ S3_BUCKET = args["S3_BUCKET"]
 
 # RDS connection properties
 # jdbc_url = f"jdbc:mysql://{RDS_HOST}:3306/{RDS_DB}"
-jdbc_url = f"jdbc:{RDS_HOST}:3306/{RDS_DB}?SSL=false"
+jdbc_url = f"jdbc:{RDS_HOST}:3306/{RDS_DB}?useSSL=false"
 
 # Function to extract data and load to S3
 def fetch_and_upload_s3(table_name):
